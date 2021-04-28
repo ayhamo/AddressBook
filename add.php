@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result = mysqli_query($conn, $query);
 
         if ($result) {
-            echo "<script>alert('Content  info has been created in the database !');
+            echo "<script>alert('Contact info has been created in the database !');
                    location.href='add.php';</script>";
 
         } else
@@ -52,27 +52,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Contact Adding</title>
     <style>
         .error {color: #FF0000;}
         .parent{
             display: flex;
+            justify-content: flex-start;
             flex-direction: row;
             margin: 15px;
         }
         .main{
-            justify-content: flex-start;
-            display: flex;
-            flex-direction: column;
             margin-left: 100px;
             margin-top: 100px;
             font-size: 100%;
             font-weight: bold;
-        }
-        .main > input[type=submit] {
-            align-self: center;
         }
     </style>
 </head>
@@ -80,15 +75,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="parent">
     <div class="buttons">
         <br><b><span style="font-size: 144%;margin-left: 35px "> Address Book</span></b><br><br>
-            <a href=add.php> Add Contact </a><br><br>
-            <a href=add.php> Delete Contact </a><br><br>
-            <a href=add.php> Add Contact </a><br><br>
-            <a href=add.php> Search Contact </a><br><br>
-            <a href=add.php> List All Contact </a><br><br>
+        <a href=add.php> Add Contact </a><br><br>
+        <a href=delete.php> Delete Contact </a><br><br>
+        <a href=search.php> Search Contact </a><br><br>
+        <a href=listAll.php> List All Contact </a><br><br>
     </div>
 
     <div class="main">
-        <b><span style="font-size: 144%;margin-left: -18px ">Add contact Information</span></b>
+        <span style="font-size: 144%;margin-left: -18px ">Add contact Information</span>
         <br><br>
         <form method="post" action="<?php echo $_SERVER["PHP_SELF"];?>">
             First Name : <input type="text" name="fname" value="<?= $_POST['fname'] ?? ''; ?>">
@@ -102,7 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <br><br>
             Home Phone:<input type="text" name="phone" value="<?= $_POST['phone'] ?? ''; ?>">
             <span class="error"> * <?php echo $phoneErr;?></span>
-            <br><br>
+            <br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
             <input type="submit">
         </form>
     </div>

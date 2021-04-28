@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>Address Book</title>
         <style>
@@ -18,15 +18,14 @@
             }
         </style>
     </head>
-    <body">
+    <body>
     <div class="parent">
         <div class="buttons">
         <br><b><span style="font-size: 144%;margin-left: 35px "> Address Book</span><br><br>
         <a href=add.php> Add Contact </a><br><br>
-        <a href=add.php> Delete Contact </a><br><br>
-        <a href=add.php> Add Contact </a><br><br>
-        <a href=add.php> Search Contact </a><br><br>
-        <a href=add.php> List All Contact </a><br><br>
+        <a href=delete.php> Delete Contact </a><br><br>
+        <a href=search.php> Search Contact </a><br><br>
+        <a href=listAll.php> List All Contact </a><br><br>
         </div>
 
         <div class="main">
