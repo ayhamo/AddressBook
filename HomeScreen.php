@@ -3,6 +3,7 @@
     <head>
         <title>Address Book</title>
         <style>
+
             .parent{
                 display: flex;
                 justify-content: flex-start;
@@ -17,7 +18,7 @@
             }
         </style>
     </head>
-    <body>
+    <body">
     <div class="parent">
         <div class="buttons">
         <br><b><span style="font-size: 144%;margin-left: 35px "> Address Book</span><br><br>
@@ -33,9 +34,5 @@
         </div>
     </div>
 
-
-        <?php
-        // put your code here
-        ?>
     </body>
 </html>
