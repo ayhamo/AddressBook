@@ -21,7 +21,7 @@
     <body>
     <div class="parent">
         <div class="buttons">
-        <br><b><span style="font-size: 144%;margin-left: 35px "> Address Book</span><br><br>
+        <br><b><span style="font-size: 144%;margin-left: 35px "> Address Book</span></b><br><br>
         <a href=add.php> Add Contact </a><br><br>
         <a href=delete.php> Delete Contact </a><br><br>
         <a href=search.php> Search Contact </a><br><br>

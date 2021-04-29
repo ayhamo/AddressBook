@@ -35,6 +35,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if ($add) {
+        $fname = ucwords($fname);
+        $lname = ucwords($lname);
         $query = "insert into contacts(fname,lname,email,homePhone) values ('$fname','$lname','$email','$phone')";
         $result = mysqli_query($conn, $query);
 
@@ -67,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .main{
             margin-left: 100px;
             margin-top: 100px;
-            font-size: 100%;
+            font-size: 120%;
             font-weight: bold;
         }
     </style>
@@ -97,8 +99,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <br><br>
             Home Phone:<input type="text" name="phone" value="<?= $_POST['phone'] ?? ''; ?>">
             <span class="error"> * <?php echo $phoneErr;?></span>
-            <br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-            <input type="submit">
+            <br><br>&emsp;&emsp;&emsp;
+            <input type="submit" value="Create Contact">
         </form>
     </div>
 </div>

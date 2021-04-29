@@ -7,6 +7,10 @@ $lname =  $_GET['lname'];
 $query = "SELECT * FROM contacts WHERE fname = '$fname' AND lname = '$lname'";
 $result = mysqli_query($conn,$query);
 
+$info= mysqli_fetch_array($result);
+$email = $info['email'];
+
+
 ?>
 
 
@@ -31,7 +35,7 @@ $result = mysqli_query($conn,$query);
 <body>
 <div class="parent">
     <div class="buttons">
-        <br><b><span style="font-size: 144%;margin-left: 35px "> Address Book</span><br><br>
+        <br><b><span style="font-size: 144%;margin-left: 35px "> Address Book</span></b><br><br>
             <a href=add.php> Add Contact </a><br><br>
             <a href=delete.php> Delete Contact </a><br><br>
             <a href=search.php> Search Contact </a><br><br>
@@ -39,9 +43,10 @@ $result = mysqli_query($conn,$query);
     </div>
 
     <div class="main">
-        <span style="font-size: 150%;margin-left: -16px"><?php echo $fname . ', ' . $lname; ?></span><br><br>
-        First Name: <br><br>
-        Last Name:
+        <span style="font-size: 150%;font-weight: bold;"><?php echo $lname . ', ' . $fname; ?></span><br><br>
+        First Name: &ensp;&emsp;<?php echo $fname?><br><br>
+        Last Name:  &ensp;&emsp;<?php echo $lname?><br><br>
+        Email Address: <?php echo $email?><br><br>
 
 
     </div>
