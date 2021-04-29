@@ -1,6 +1,12 @@
 <?php
-echo $_GET['fname'];
-echo $_GET['lname'];
+include "dbConnection.php";
+
+$fname =  $_GET['fname'];
+$lname =  $_GET['lname'];
+
+$query = "SELECT * FROM contacts WHERE fname = '$fname' AND lname = '$lname'";
+$result = mysqli_query($conn,$query);
+
 ?>
 
 
@@ -9,7 +15,6 @@ echo $_GET['lname'];
 <head>
     <title>Address Book</title>
     <style>
-
         .parent{
             display: flex;
             justify-content: flex-start;
@@ -20,7 +25,6 @@ echo $_GET['lname'];
             margin-left: 100px;
             margin-top: 100px;
             font-size: 100%;
-            font-weight: bold;
         }
     </style>
 </head>
@@ -35,7 +39,11 @@ echo $_GET['lname'];
     </div>
 
     <div class="main">
-        Welcome to the AddressBook App
+        <span style="font-size: 150%;margin-left: -16px"><?php echo $fname . ', ' . $lname; ?></span><br><br>
+        First Name: <br><br>
+        Last Name:
+
+
     </div>
 </div>
 

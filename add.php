@@ -41,6 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($result) {
             echo "<script>alert('Contact info has been created in the database !');
                    location.href='add.php';</script>";
+//            window.location.replace('../Main.php');
 
         } else
             echo '<br><center> Error ' . $query . "<br>" . mysqli_errno($conn) . '</center>';
