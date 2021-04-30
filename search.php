@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <span style="font-size: 144%;margin-left: -9px ">Search for a  Contact</span><br><br>
         <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
             <input type="text" name="name" placeholder="Enter Contact name" value="<?= $_POST['name'] ?? ''; ?>"
-                   required oninvalid="this.setCustomValidity('Please Enter valid name')" oninput="this.setCustomValidity('')">
+                   required oninvalid="this.setCustomValidity('Please Fill the box with valid name')" oninput="this.setCustomValidity('')">
             &ensp;<input type="submit" value="Search">
             <br>
             <ul >

@@ -1,55 +1,25 @@
 <?php
 include "dbConnection.php";
 
-$fnameErr = $lnameErr = $emailErr = $phoneErr = "";
-$fname = $lname = $email = $phone = "";
-$add = true;
+$fname = $lname = $email = $cphone = $hphone = $ophone = $address = $comment =  "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty($_POST["fname"])) {
-        $fnameErr = "First Name is required";
-        $add = false;
-    } else {
-        $fname = $_POST['fname'];
-    }
 
-    if (empty($_POST["lname"])) {
-        $lnameErr = "Last Name is required";
-        $add = false;
-    } else {
-        $lname = $_POST['lname'];
-    }
-
-    if (empty($_POST["email"])) {
-        $emailErr = "Email is required";
-        $add = false;
-    } else {
-        $email = $_POST['email'];
-    }
-
-    if (empty($_POST["phone"])) {
-        $phoneErr = "Home Number is required";
-        $add = false;
-    } else {
-        $phone = $_POST['phone'];
-    }
-
-    if ($add) {
-        $fname = ucwords($fname);
-        $lname = ucwords($lname);
-        $query = "insert into contacts(fname,lname,email,homePhone) values ('$fname','$lname','$email','$phone')";
+        $fname = ucwords($_POST["fname"]);
+        $lname = ucwords($_POST["lname"]);
+        $query = "insert into contacts(fname,lname,email,cellphone,homephone,officephone,address,comment) values ('$fname','$lname','{$_POST["email"]}','{$_POST["cphone"]}
+                                                                                                ','{$_POST["hphone"]}','{$_POST["ophone"]}','{$_POST["address"]}','{$_POST["comment"]}')";
         $result = mysqli_query($conn, $query);
 
         if ($result) {
             echo "<script>alert('Contact info has been created in the database !');
-                   window.location.replace('add.php');
                    </script>";
 
         } else
             echo '<br><center> Error ' . $query . "<br>" . mysqli_errno($conn) . '</center>';
 
         mysqli_close($conn);
-    }
+
 }
 ?>
 
@@ -75,10 +45,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-size: 120%;
             font-weight: bold;
         }
+        .form {
+            background-color: #eeeeee;
+            padding: 1rem;
+            border: 1px solid darkgray;
+            border-radius: .25rem;
+        }
+        .form > input {
+            margin-bottom: 8px;
+            background: #fff;
+            border: 1px solid #9c9c9c;
+            border-radius: .20rem;
+            height: 22px;
+
+        }
+        .form #submit {
+            background-color: white;
+            border-radius: .25rem;
+            height: 50px;
+        }
+        .textarea * {
+            vertical-align: middle;
+        }
     </style>
 </head>
-<body
-">   <!--<body style="background-color:aqua;">-->
+<body>
 <div class="parent">
     <div class="buttons">
         <br><b><span style="font-size: 210%;margin-left: 17px;font-family: 'Agency FB',sans-serif">Address<br>&ensp;Book</span></b><br><br>
@@ -89,22 +80,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <div class="main">
-        <span style="font-size: 144%;margin-left: -18px ">Add contact Information</span>
-        <br><br>
-        <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
-            First Name : <input type="text" name="fname" value="<?= $_POST['fname'] ?? ''; ?>">
-            <span class="error"> * <?php echo $fnameErr; ?></span>
-            <br><br>
-            Last Name :&ensp;<input type="text" name="lname" value="<?= $_POST['lname'] ?? ''; ?>">
-            <span class="error"> * <?php echo $lnameErr; ?></span>
-            <br><br>
-            E-mail : &emsp;&emsp;<input type="text" name="email" value="<?= $_POST['email'] ?? ''; ?>">
-            <span class="error"> * <?php echo $emailErr; ?></span>
-            <br><br>
-            Home Phone:<input type="text" name="phone" value="<?= $_POST['phone'] ?? ''; ?>">
-            <span class="error"> * <?php echo $phoneErr; ?></span>
-            <br><br>&emsp;&emsp;&emsp;
-            <input type="submit" value="Create Contact">
+        <span style="font-size: 144%; "> Add contact Information</span>
+        <br>
+        <form id="form" class="form" method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+            <label>First Name<span class="error"> *</span>:&ensp;</label><input type="text" name="fname"
+                                required oninvalid="this.setCustomValidity('First Name Field is required')" oninput="this.setCustomValidity('')">
+            <br>
+
+            <label>Last Name<span class="error"> *</span></label>:&hairsp;&ensp;<input type="text" name="lname"
+                                    required oninvalid="this.setCustomValidity('Last Name Field is required')" oninput="this.setCustomValidity('')">
+            <br>
+
+            <label>Email<span class="error"> *</span></label>:&emsp;&emsp;&ensp;&ensp;<input type="text" name="email"
+                                        required oninvalid="this.setCustomValidity('Email Field is required')" oninput="this.setCustomValidity('')">
+            <br>
+
+            <label>Cell Phone<span class="error"> *</span></label>:&ensp;<input type="text" name="cphone"
+                              required oninvalid="this.setCustomValidity('Cell Phone Field is required')" oninput="this.setCustomValidity('')">
+            <br>
+
+            <label> Home Phone</label>: <input type="text" name="hphone">
+            <br>
+
+            <label>Office Phone</label>: <input type="text" name="ophone">
+            <br>
+
+            <label class="textarea">Address:&emsp;&emsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;<textarea rows="2" name="address"> </textarea><br></label>
+            <br>
+
+            <label class="textarea">Comment: &emsp;&ensp;<textarea rows="2" name="comment"> </textarea><br></label>
+            <br>
+
+            <div style="text-align: center;"><input id="submit" type="submit" value="Create Contact"></div>
         </form>
     </div>
 </div>
