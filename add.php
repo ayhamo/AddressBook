@@ -57,16 +57,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Contact Adding</title>
+    <title>Add Contact</title>
     <style>
-        .error {color: #FF0000;}
-        .parent{
+        .error {
+            color: #FF0000;
+        }
+        .parent {
             display: flex;
             justify-content: flex-start;
             flex-direction: row;
             margin: 15px;
         }
-        .main{
+        .main {
             margin-left: 100px;
             margin-top: 100px;
             font-size: 120%;
@@ -74,7 +76,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     </style>
 </head>
-<body">   <!--<body style="background-color:aqua;">-->
+<body
+">   <!--<body style="background-color:aqua;">-->
 <div class="parent">
     <div class="buttons">
         <br><b><span style="font-size: 144%;margin-left: 35px "> Address Book</span></b><br><br>
@@ -87,18 +90,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="main">
         <span style="font-size: 144%;margin-left: -18px ">Add contact Information</span>
         <br><br>
-        <form method="post" action="<?php echo $_SERVER["PHP_SELF"];?>">
+        <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
             First Name : <input type="text" name="fname" value="<?= $_POST['fname'] ?? ''; ?>">
-            <span class="error"> * <?php echo $fnameErr;?></span>
+            <span class="error"> * <?php echo $fnameErr; ?></span>
             <br><br>
-            Last Name :&ensp;<input type="text" name="lname"value="<?= $_POST['lname'] ?? ''; ?>">
-            <span class="error"> * <?php echo $lnameErr;?></span>
+            Last Name :&ensp;<input type="text" name="lname" value="<?= $_POST['lname'] ?? ''; ?>">
+            <span class="error"> * <?php echo $lnameErr; ?></span>
             <br><br>
             E-mail : &emsp;&emsp;<input type="text" name="email" value="<?= $_POST['email'] ?? ''; ?>">
-            <span class="error"> * <?php echo $emailErr;?></span>
+            <span class="error"> * <?php echo $emailErr; ?></span>
             <br><br>
             Home Phone:<input type="text" name="phone" value="<?= $_POST['phone'] ?? ''; ?>">
-            <span class="error"> * <?php echo $phoneErr;?></span>
+            <span class="error"> * <?php echo $phoneErr; ?></span>
             <br><br>&emsp;&emsp;&emsp;
             <input type="submit" value="Create Contact">
         </form>
