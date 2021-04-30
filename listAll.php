@@ -14,6 +14,7 @@ $result = mysqli_query($conn, $query);
     <title>All Contacts</title>
     <style>
         .parent {
+            font-family: sans-serif;
             display: flex;
             justify-content: flex-start;
             flex-direction: row;
@@ -25,12 +26,16 @@ $result = mysqli_query($conn, $query);
             font-size: 120%;
             font-weight: bold;
         }
+        ul{
+            margin-left: -20px;
+            list-style-position: outside;
+        }
     </style>
 </head>
 <body>
 <div class="parent">
     <div class="buttons">
-        <br><b><span style="font-size: 144%;margin-left: 35px "> Address Book</span></b><br><br>
+        <br><b><span style="font-size: 210%;margin-left: 17px;font-family: 'Agency FB',sans-serif">Address<br>&ensp;Book</span></b><br><br>
         <a href=add.php> Add Contact </a><br><br>
         <a href=delete.php> Delete Contact </a><br><br>
         <a href=search.php> Search Contact </a><br><br>

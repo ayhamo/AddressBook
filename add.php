@@ -42,8 +42,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($result) {
             echo "<script>alert('Contact info has been created in the database !');
-                   location.href='add.php';</script>";
-//            window.location.replace('../Main.php');
+                   window.location.replace('add.php');
+                   </script>";
 
         } else
             echo '<br><center> Error ' . $query . "<br>" . mysqli_errno($conn) . '</center>';
@@ -63,6 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             color: #FF0000;
         }
         .parent {
+            font-family: sans-serif;
             display: flex;
             justify-content: flex-start;
             flex-direction: row;
@@ -80,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ">   <!--<body style="background-color:aqua;">-->
 <div class="parent">
     <div class="buttons">
-        <br><b><span style="font-size: 144%;margin-left: 35px "> Address Book</span></b><br><br>
+        <br><b><span style="font-size: 210%;margin-left: 17px;font-family: 'Agency FB',sans-serif">Address<br>&ensp;Book</span></b><br><br>
         <a href=add.php> Add Contact </a><br><br>
         <a href=delete.php> Delete Contact </a><br><br>
         <a href=search.php> Search Contact </a><br><br>
