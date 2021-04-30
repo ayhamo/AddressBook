@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         while ($info = mysqli_fetch_array($result)) {
             $string .= "<li><a href='" . 'listAllDetails.php?fname=' . $info['fname'] . '&' . 'lname=' . $info['lname'] . "'>" . $info['lname'] . ', ' . $info['fname'] . "</a></li><br>";
         }
-    }else
+    } else
         $string = "No results found";
 }
 
@@ -23,20 +23,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <title>Search Contact</title>
     <style>
-        .parent{
+        .parent {
             font-family: sans-serif;
             display: flex;
             justify-content: flex-start;
             flex-direction: row;
             margin: 15px;
         }
-        .main{
+
+        .main {
             margin-left: 100px;
             margin-top: 100px;
             font-size: 120%;
             font-weight: bold;
         }
-        ul{
+
+        ul {
             margin-left: -20px;
             list-style-position: outside;
         }
@@ -46,20 +48,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="parent">
     <div class="buttons">
         <br><b><span style="font-size: 210%;margin-left: 17px;font-family: 'Agency FB',sans-serif">Address<br>&ensp;Book</span></b><br><br>
-            <a href=add.php> Add Contact </a><br><br>
-            <a href=delete.php> Delete Contact </a><br><br>
-            <a href=search.php> Search Contact </a><br><br>
-            <a href=listAll.php> List All Contact </a><br><br>
+        <a href=add.php> Add Contact </a><br><br>
+        <a href=delete.php> Delete Contact </a><br><br>
+        <a href=search.php> Search Contact </a><br><br>
+        <a href=listAll.php> List All Contact </a><br><br>
     </div>
 
     <div class="main">
         <span style="font-size: 144%;margin-left: -9px ">Search for a  Contact</span><br><br>
         <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
             <input type="text" name="name" placeholder="Enter Contact name" value="<?= $_POST['name'] ?? ''; ?>"
-                   required oninvalid="this.setCustomValidity('Please Fill the box with valid name')" oninput="this.setCustomValidity('')">
+                   required oninvalid="this.setCustomValidity('Please Fill the box with valid name')"
+                   oninput="this.setCustomValidity('')">
             &ensp;<input type="submit" value="Search">
             <br>
-            <ul >
+            <ul>
                 <?php echo $string; ?>
             </ul>
 

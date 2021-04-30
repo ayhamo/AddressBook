@@ -19,7 +19,7 @@
         }
     </style>
 </head>
-<body   >
+<body>
 <div class="parent">
     <div class="buttons">
         <br><b><span style="font-size: 210%;margin-left: 17px;font-family: 'Agency FB',sans-serif">Address<br>&ensp;Book</span></b><br><br>

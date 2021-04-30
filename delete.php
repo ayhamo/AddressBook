@@ -36,6 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             flex-direction: row;
             margin: 15px;
         }
+
         .main {
 
             margin-left: 100px;

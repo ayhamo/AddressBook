@@ -20,13 +20,15 @@ $result = mysqli_query($conn, $query);
             flex-direction: row;
             margin: 15px;
         }
+
         .main {
             margin-left: 100px;
             margin-top: 100px;
             font-size: 120%;
             font-weight: bold;
         }
-        ul{
+
+        ul {
             margin-left: -20px;
             list-style-position: outside;
         }
