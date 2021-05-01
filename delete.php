@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         .myForm #button {
-            background-color: #f3f3f3;
+            background-color: white;
             border-radius: .25rem;
             height: 30px;
             width: 90px;
