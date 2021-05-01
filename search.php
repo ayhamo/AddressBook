@@ -38,6 +38,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-weight: bold;
         }
 
+        .form #search {
+            background: #fff;
+            border: 1px solid #9c9c9c;
+            border-radius: .20rem;
+            height: 25px;
+        }
+
+        .form #button {
+            background-color: white;
+            border-radius: .25rem;
+            height: 30px;
+
+        }
+
         ul {
             margin-left: -20px;
             list-style-position: outside;
@@ -55,12 +69,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <div class="main">
-        <span style="font-size: 144%;margin-left: -9px ">Search for a  Contact</span><br><br>
-        <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
-            <input type="text" name="name" placeholder="Enter Contact name" value="<?= $_POST['name'] ?? ''; ?>"
+        <span style="font-size: 144%;margin-left: -9px;font-family: 'Rockwell Nova Light',serif">Search for a  Contact</span><br><br>
+        <form class="form" method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+            <input id="search" type="text" name="name" placeholder="Enter Contact name"
+                   value="<?= $_POST['name'] ?? ''; ?>"
                    required oninvalid="this.setCustomValidity('Please Fill the box with valid name')"
                    oninput="this.setCustomValidity('')">
-            &ensp;<input type="submit" value="Search">
+            &ensp;<input id="button" type="submit" value="Search">
             <br>
             <ul>
                 <?php echo $string; ?>

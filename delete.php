@@ -38,12 +38,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         .main {
-
             margin-left: 100px;
             margin-top: 100px;
             font-size: 120%;
             font-weight: bold;
             input:: before
+        }
+
+        .myForm #button {
+            background-color: #f3f3f3;
+            border-radius: .25rem;
+            height: 30px;
+            width: 90px;
         }
     </style>
 </head>
@@ -58,8 +64,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <div class="main">
-        <span style="font-size: 144%;margin-left: -18px ">Delete Contact Information</span><br><br>
-        <form id="myForm" method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+        <span style="font-size: 144%;margin-left: -18px;font-family: 'Rockwell Nova Light',serif">Delete Contact Information</span><br><br>
+        <form class="myForm" method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
             <?php
             while ($info = mysqli_fetch_array($result)) {
                 $fn = $info['fname'];
@@ -67,7 +73,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "<input type='checkbox' name='name[]' value='$fn,$ln'> <a href='" . 'listAllDetails.php?fname=' . $fn . '&' . 'lname=' . $ln . "'>" . $ln . ', ' . $fn . "</a><br><br>";
             }
             ?>
-            <input type="submit" value="Delete"> &emsp;&emsp;<input type="reset" onclick="clear()" value="Clear">
+            <input id="button" type="submit" value="Delete"> &emsp;&ensp;<input id="button" type="reset"
+                                                                                onclick="clear()" value="Clear">
             <script>
                 function clear() {
                     document.getElementById("myForm").reset();

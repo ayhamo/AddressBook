@@ -86,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <div class="main">
-        <span style="font-size: 144%; "> Add contact Information</span>
+        <span style="font-size: 144%;;font-family: 'Rockwell Nova Light',serif "> Add contact Information</span>
         <br>
         <form id="form" class="form" method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
             <label>First Name<span class="error"> *</span>:&ensp;</label><input type="text" name="fname"

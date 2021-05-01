@@ -45,7 +45,7 @@ $result = mysqli_query($conn, $query);
     </div>
 
     <div class="main">
-        <span style="font-size: 144%;margin-left: -18px ">All Contact Information</span>
+        <span style="font-size: 144%;margin-left: -18px;font-family: 'Rockwell Nova Light',serif">All Contact Information</span>
         <br>
         <ul>
             <?php
