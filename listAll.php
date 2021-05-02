@@ -49,9 +49,12 @@ $result = mysqli_query($conn, $query);
         <br>
         <ul>
             <?php
-            while ($info = mysqli_fetch_array($result)) {
-                echo "<li><a href='" . 'listAllDetails.php?fname=' . $info['fname'] . '&' . 'lname=' . $info['lname'] . "'>" . $info['lname'] . ', ' . $info['fname'] . "</a></li><br>";
-            }
+            if (mysqli_num_rows($result) != 0) {
+                while ($info = mysqli_fetch_array($result)) {
+                    echo "<li><a href='" . 'listAllDetails.php?fname=' . $info['fname'] . '&' . 'lname=' . $info['lname'] . "'>" . $info['lname'] . ', ' . $info['fname'] . "</a></li><br>";
+                }
+            }else
+                echo 'You have no contacts, try adding some :) !';
             ?>
         </ul>
     </div>

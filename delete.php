@@ -67,10 +67,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <span style="font-size: 144%;margin-left: -18px;font-family: 'Rockwell Nova Light',serif">Delete Contact Information</span><br><br>
         <form class="myForm" method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
             <?php
-            while ($info = mysqli_fetch_array($result)) {
-                $fn = $info['fname'];
-                $ln = $info['lname'];
-                echo "<input type='checkbox' name='name[]' value='$fn,$ln'> <a href='" . 'listAllDetails.php?fname=' . $fn . '&' . 'lname=' . $ln . "'>" . $ln . ', ' . $fn . "</a><br><br>";
+            if (mysqli_num_rows($result) != 0) {
+                while ($info = mysqli_fetch_array($result)) {
+                    $fn = $info['fname'];
+                    $ln = $info['lname'];
+                    echo "<input type='checkbox' name='name[]' value='$fn,$ln'> <a href='" . 'listAllDetails.php?fname=' . $fn . '&' . 'lname=' . $ln . "'>" . $ln . ', ' . $fn . "</a><br><br>";
+                }
+            }else {
+                echo 'You have no contacts, try adding some :) !<br><br>';
+                exit();
             }
             ?>
             <input id="button" type="submit" value="Delete"> &emsp;&ensp;<input id="button" type="reset"
