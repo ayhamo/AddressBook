@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         }
 
-        .form #submit {
+        .form #button    {
             background-color: white;
             border-radius: .25rem;
             height: 50px;
@@ -126,7 +126,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label class="textarea">Comment: &emsp;&ensp;<textarea rows="2" name="comment"> </textarea><br></label>
             <br>
 
-            <div style="text-align: center;"><input id="submit" type="submit" value="Create Contact"></div>
+            <div style="text-align: center;"><input id="button" type="submit" value="Create Contact"> <input style="width: 100px;margin-left: 15px" id="button" type="reset"
+                                                                                                             onclick="clear()" value="Clear"></div>
+            <script>
+                function clear() {
+                    document.getElementById("form").reset();
+                }</script>
         </form>
     </div>
 </div>

@@ -61,15 +61,17 @@ $comment = $info['comment'];
             <br>
             <li>Last Name: &ensp;&emsp;&hairsp;<?php echo $lname ?></li>
             <br>
+            <li>Email: &emsp;&ensp;<?php echo '<span style="margin-left: 39px">' .  $email . '</span>' ?></li>
+            <br>
             <li>Cell Phone: &emsp;&ensp;<?php echo $cphone ?></li>
             <br>
             <li>Home Phone: &ensp;&hairsp;<?php echo $hphone ?></li>
             <br>
             <li>Office Phone: &ensp;&hairsp;&hairsp;<?php echo $ophone ?></li>
             <br>
-            <li>Address: &emsp;&emsp;&ensp;<?php echo $address ?></li>
+            <li>Address: &emsp;&emsp;&ensp;<?php echo $address  ?></li>
             <br>
-            <li>Comment: &emsp;&emsp;<?php echo $comment ?></li>
+            <li>Comment:&emsp;&emsp;&hairsp;<?php echo $comment ?></li>
             <br>
         </ul>
 
