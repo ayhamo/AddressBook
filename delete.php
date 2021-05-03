@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $ln = $info['lname'];
                     echo "<input type='checkbox' name='name[]' value='$fn,$ln'> <a href='" . 'listAllDetails.php?fname=' . $fn . '&' . 'lname=' . $ln . "'>" . $ln . ', ' . $fn . "</a><br><br>";
                 }
-            }else {
+            } else {
                 echo 'You have no contacts, try adding some :) !<br><br>';
                 exit();
             }

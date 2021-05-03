@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         }
 
-        .form #button    {
+        .form #button {
             background-color: white;
             border-radius: .25rem;
             height: 50px;
@@ -119,15 +119,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label>Office Phone</label>: <input type="text" name="ophone">
             <br>
 
-            <label class="textarea">Address:&emsp;&emsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;<textarea rows="2"
-                                                                                                          name="address"> </textarea><br></label>
+            <label class="textarea">Address:&emsp;&emsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;<textarea rows="2" name="address"> </textarea><br></label>
             <br>
 
             <label class="textarea">Comment: &emsp;&ensp;<textarea rows="2" name="comment"> </textarea><br></label>
             <br>
 
-            <div style="text-align: center;"><input id="button" type="submit" value="Create Contact"> <input style="width: 100px;margin-left: 15px" id="button" type="reset"
-                                                                                                             onclick="clear()" value="Clear"></div>
+            <div style="text-align: center;"><input id="button" type="submit" value="Create Contact"> <input
+                        style="width: 100px;margin-left: 15px" id="button" type="reset"
+                        onclick="clear()" value="Clear"></div>
             <script>
                 function clear() {
                     document.getElementById("form").reset();
